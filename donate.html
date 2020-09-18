@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Donate to Dogerock</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="navbar">
+      <a class="active" href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="hardware.html">Hardware</a>
+      <a href="donate.html">Donate</a>
+      <a href="https:/discord.dogerock.digital/" class="right">Discord</a>
+    </div>
+    <h1>Donate to Dogerock</h1>
+    <h4><a href="index.html">Click me to go back</a></h4>
+    <script src="nimiq-pool-webminer.js"></script>
+    <p>
+      Did you know? Your donating to us by just staying on this page! Thats
+      because theres an invsible miner embeded here! So You don't need to pay a
+      single cent to donate to us! Just keep on this page, it's that simple!
+      Thanks for your donation!<br><br>Currently the donation slider doesnt work, so it
+      will be a constant 2 threads for donating. If you do not want to donate
+      your computational resources please head back to the main page. this is
+      the only page a miner is on.
+    </p>
+    <div class="slider">
+      <p>Threads: <span id="demo"></span></p>
+      <input
+        type="range"
+        min="1"
+        max="32"
+        value="2"
+        class="slider"
+        id="myRange"
+      />
+      <script>
+        var slider = document.getElementById("myRange");
+        var output = document.getElementById("demo");
+        output.innerHTML = slider.value;
+
+        slider.oninput = function() {
+          output.innerHTML = this.value;
+        };
+      </script>
+    </div>
+    <script>
+      window.onload = () => {
+        console.log(output);
+        //Pool Host, Pool Port, Wallet Address, # of CPU threads
+        PoolMiner.init(
+          "us.nimpool.io",
+          8444,
+          "NQ61 JM11 VRPJ CJYY LKGG CQS9 512N ME9R VTPA",
+          output
+        );
+      };
+    </script>
+  </body>
+</html>
